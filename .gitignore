@@ -40,3 +40,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# files with firebase access
+environment.ts
+environment.prod.ts
