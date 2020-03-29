@@ -26,6 +26,7 @@ import { UserService } from './user.service';
 import { AdminAuthGuardService } from './admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 import { CategoryService } from './category.service';
+import { ProductService } from './product.service';
 
 
 @NgModule({
@@ -85,6 +86,7 @@ import { CategoryService } from './category.service';
     AdminAuthGuardService,
     UserService,
     CategoryService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
