@@ -1,37 +1,37 @@
-
 <p>
   <a routerLink="/admin/products/new" class="btn btn-primary">New Product</a>
 </p>
 
 <p>
-  <input
-  #query
-  (keyup)="filter(query.value)"
-  type="text" class="form-control" placeholder="Search...">
+  <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search...">
 </p>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Price</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <!-- ALERT - no matching products -->
-    <tr *ngIf="filteredProducts?.length === 0">
-      <td colspan="3">
-        <div class="alert alert-danger" >No matching products</div>
-      </td>
-    </tr>
-    <!-- RENDER FILTERED PRODUCTS -->
-    <tr *ngFor="let p of filteredProducts">
-      <td>{{ p.title }}</td>
-      <td>{{ p.price | currency:'PLN'}}</td>
-      <td>
-        <a [routerLink]="['/admin/products/', p.$key]">Edit</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<ng-container *ngIf="filteredProducts?.length === 0; then noMatchAlert; else table"></ng-container>
+
+<!-- ALERT - no matching products -->
+<ng-template #noMatchAlert>
+  <div class="alert alert-danger">No matching products</div>
+</ng-template>
+
+<ng-template #table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- RENDER FILTERED PRODUCTS -->
+      <tr *ngFor="let p of filteredProducts">
+        <td>{{ p.title }}</td>
+        <td>{{ p.price | currency:'PLN'}}</td>
+        <td>
+          <a [routerLink]="['/admin/products/', p.$key]">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
