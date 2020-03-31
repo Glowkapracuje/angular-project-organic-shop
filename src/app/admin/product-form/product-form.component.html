@@ -55,7 +55,7 @@
           <div *ngIf="imageUrl.errors.url">Enter a valid URL</div>
         </div>
       </div>
-
+      <!-- ACTION BUTTONS -->
       <button class="btn btn-primary">Save</button>
       <button type="button" (click)="delete()" class="btn btn-danger">Delete</button>
       <button type="button" (click)="cancel()" class="btn btn-secondary">Cancel</button>
@@ -64,13 +64,17 @@
 
   <!-- CARD - right column -->
   <div class="col-md-6">
-    <div class="card" style="width: 20em">
-      <img [src]="product.imageUrl" *ngIf="product.imageUrl" class="card-img-top">
-      <div class="card-body">
-        <h4 class="card-title">{{ product.title }}</h4>
-        <p>{{ product.price | currency:'PLN' }}</p>
+    <div *ngIf="product.title">
+      <label for="card">Preview</label>
+      <div  class="card" style="width: 20em" name="card">
+        <img [src]="product.imageUrl" *ngIf="product.imageUrl" class="card-img-top">
+        <div class="card-body">
+          <h4 class="card-title">{{ product.title }}</h4>
+          <p>{{ product.price | currency:'PLN' }}</p>
+        </div>
       </div>
     </div>
+
   </div>
 
 </div>
