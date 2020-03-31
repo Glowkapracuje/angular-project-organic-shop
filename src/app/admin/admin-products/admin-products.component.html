@@ -6,7 +6,7 @@
   <input #query (keyup)="filter(query.value)" type="text" class="form-control" placeholder="Search...">
 </p>
 
-<ng-container *ngIf="filteredProducts?.length === 0; then noMatchAlert; else table"></ng-container>
+<ng-container *ngIf="itemCount === 0; then noMatchAlert; else table"></ng-container>
 
 <!-- ALERT - no matching products -->
 <ng-template #noMatchAlert>
