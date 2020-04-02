@@ -64,15 +64,8 @@
 
   <!-- CARD - right column -->
   <div class="col-md-6">
-    <div *ngIf="product.title">
-      <label for="card">Preview</label>
-      <div  class="card" style="width: 20em" name="card">
-        <img [src]="product.imageUrl" *ngIf="product.imageUrl" class="card-img-top">
-        <div class="card-body">
-          <h4 class="card-title">{{ product.title }}</h4>
-          <p>{{ product.price | currency:'PLN' }}</p>
-        </div>
-      </div>
+    <div>
+      <product-card [product]="product" [showActions]="false" [componentLabel]="'Preview'"></product-card>
     </div>
 
   </div>
