@@ -16,6 +16,5 @@ export class ProductCardComponent {
 
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
-
   }
 }
