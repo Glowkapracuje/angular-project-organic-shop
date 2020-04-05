@@ -32,7 +32,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
 import { CategoryService } from './category.service';
 import { ProductService } from './product.service';
 import { ProductFilterComponent } from './products/product-filter/product-filter.component';
-import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductCartComponent } from './product-cart/product-cart.component';
 import { ShoppingCartService } from './shopping-cart.service';
 
 
@@ -52,7 +52,7 @@ import { ShoppingCartService } from './shopping-cart.service';
     LoginComponent,
     ProductFormComponent,
     ProductFilterComponent,
-    ProductCardComponent
+    ProductCartComponent
   ],
   imports: [
     BrowserModule,

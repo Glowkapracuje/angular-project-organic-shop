@@ -3,11 +3,11 @@ import { Product } from 'app/models/product';
 import { ShoppingCartService } from 'app/shopping-cart.service';
 
 @Component({
-  selector: 'product-card',
-  templateUrl: './product-card.component.html',
-  styleUrls: ['./product-card.component.css']
+  selector: 'product-cart',
+  templateUrl: './product-cart.component.html',
+  styleUrls: ['./product-cart.component.css']
 })
-export class ProductCardComponent {
+export class ProductCartComponent {
   @Input('product') product: Product;
   @Input('componentLabel') componentLabel: string;
   @Input('showActions') showActions: boolean = true;
@@ -16,5 +16,9 @@ export class ProductCardComponent {
 
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
+  }
+
+  public logThat(product: Product) {
+    console.log(product);
   }
 }

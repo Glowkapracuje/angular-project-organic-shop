@@ -10,10 +10,16 @@
     <div class="card-footer">
       <button
         *ngIf="showActions"
-        (click)="addToCart()"
+        (click)="addToCart(product)"
         class="btn btn-primary btn-block"
         >Add to cart
       </button>
+      <button
+      *ngIf="showActions"
+      (click)="logThat(product)"
+      class="btn btn-primary btn-block"
+      >LogThat
+    </button>
     </div>
   </div>
 </div>
