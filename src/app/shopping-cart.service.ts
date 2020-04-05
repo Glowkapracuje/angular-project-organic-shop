@@ -26,7 +26,7 @@ export class ShoppingCartService {
   // Asynchronous instead of using then. Async return a promise.
   private async getOrCreateCartId() {
     let cartId = localStorage.getItem('cartId');
-    if (!cartId) return cartId;
+    if (cartId) return cartId;
 
 
       let result = await this.create();
