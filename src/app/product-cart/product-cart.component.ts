@@ -11,11 +11,19 @@ export class ProductCartComponent {
   @Input('product') product: Product;
   @Input('componentLabel') componentLabel: string;
   @Input('showActions') showActions: boolean = true;
+  @Input('shopping-cart') shoppingCart;
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
   addToCart(product: Product) {
     this.shoppingCartService.addToCart(product);
+  }
+
+  getQuantity() {
+    if (!this.shoppingCart) return 0;
+
+    let item = this.shoppingCart.item[this.product.$key];
+    return item ? item.quantity : 0;
   }
 
   public logThat(product: Product) {
