@@ -22,6 +22,12 @@ export class ProductCartComponent {
   getQuantity() {
     if (!this.shoppingCart) return 0;
 
+    console.log(this.product.$key);
+
+
+    // if (!(this.shoppingCart as any).$value) return 0;
+
+
     let item = this.shoppingCart.item[this.product.$key];
     return item ? item.quantity : 0;
   }
