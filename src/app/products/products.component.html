@@ -4,9 +4,9 @@
   </div>
   <div class="col">
     <div class="row">
-      <ng-container *ngFor="let fp of filteredProducts; let i = index" >
+      <ng-container *ngFor="let product of filteredProducts; let i = index" >
         <div class="col">
-          <product-cart [product]="fp" [shopping-cart]="cart" ></product-cart>
+          <product-cart [product]="product" [shopping-cart]="cart" ></product-cart>
         </div>
         <div *ngIf="(i + 1) % 2 === 0" class="w-100"></div>
       </ng-container>

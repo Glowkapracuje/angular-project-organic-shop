@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Product } from './models/product';
 import 'rxjs/add/operator/take';
-// import { take } from 'rxjs/operators';
 
 @Injectable()
 export class ShoppingCartService {
@@ -45,16 +44,6 @@ export class ShoppingCartService {
     });
   }
 
-
-  // async addToCart(product: Product){
-  //   let cartId = await this.getOrCreateCartId();
-  //   let item$ =   this.db.object('/shopping-carts/' + cartId + '/items/' + product.$key);
-
-  //   item$.take(1)
-  //   .subscribe((item:any) => {
-  //      item$.update({product, quantity: (item.quantity || 0) + 1});
-  //   });
-  // }
 
 }
 

@@ -11,7 +11,7 @@ export class ProductCartComponent {
   @Input('product') product: Product;
   @Input('componentLabel') componentLabel: string;
   @Input('showActions') showActions: boolean = true;
-  @Input('shopping-cart') shoppingCart;
+  @Input('shopping-cart') shoppingCart: any;
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
@@ -22,17 +22,8 @@ export class ProductCartComponent {
   getQuantity() {
     if (!this.shoppingCart) return 0;
 
-    console.log(this.product.$key);
-
-
-    // if (!(this.shoppingCart as any).$value) return 0;
-
-
-    let item = this.shoppingCart.item[this.product.$key];
+    let item = this.shoppingCart.items[this.product.$key];
     return item ? item.quantity : 0;
   }
 
-  public logThat(product: Product) {
-    console.log(product);
-  }
 }
