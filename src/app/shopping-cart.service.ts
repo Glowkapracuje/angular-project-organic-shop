@@ -35,14 +35,22 @@ export class ShoppingCartService {
     }
 
   async addToCart(product: Product) {
+    this.updateItemQuantity(product, 1)
+  }
+
+  async removeFromCart(product: Product) {
+    this.updateItemQuantity(product, -1)
+  }
+
+  private async updateItemQuantity(product: Product, change: number) {
     let cartId = await this.getOrCreateCartId();
     let item$ = this.getItem(cartId, product.$key);
-
     // Take operator for no care of unsubsribing or destroy
     item$.take(1).subscribe((item: any) => {
-      item$.update({ product, quantity: ((item.quantity || 0) + 1) });
+      item$.update({ product, quantity: ((item.quantity || 0) + change) });
     });
   }
+
 
 
 }
