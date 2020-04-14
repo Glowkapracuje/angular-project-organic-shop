@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'app/auth.service';
 import { AppUser } from 'app/models/app-user';
 import { ShoppingCartService } from 'app/shopping-cart.service';
+import { ShoppingCart } from 'app/models/shopping-cart';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'bs-navbar',
@@ -10,7 +12,7 @@ import { ShoppingCartService } from 'app/shopping-cart.service';
 })
 export class BsNavbarComponent implements OnInit {
   appUser: AppUser;
-  shoppingCartItemCount: number;
+  cart$: Observable<ShoppingCart>;
 
   constructor(private auth: AuthService, private shoppingCartService: ShoppingCartService) {
 
@@ -18,16 +20,7 @@ export class BsNavbarComponent implements OnInit {
 
   async ngOnInit() {
     this.auth.appUser$.subscribe(appUser => this.appUser = appUser);
-
-    let cart$ = await this.shoppingCartService.getCart()
-    // We have not to unsubscribe, because we will dealing with single instance of navbar component in DOM
-    // with this subscription below logic will be reexecuted with every change
-    cart$.subscribe(cart => {
-      this.shoppingCartItemCount = 0;
-      for (let productId in cart.items) {
-        this.shoppingCartItemCount += cart.items[productId].quantity
-      }
-    });
+    this.cart$ = await this.shoppingCartService.getCart();
   }
 
   logout() {
