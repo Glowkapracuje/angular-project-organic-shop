@@ -5,6 +5,7 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/map';
 import { ShoppingCart } from './models/shopping-cart';
 import { Observable } from 'rxjs/Observable';
+import { ShoppingCartItem } from './models/shopping-cart-item';
 
 @Injectable()
 export class ShoppingCartService {
@@ -19,8 +20,11 @@ export class ShoppingCartService {
 
   async getCart(): Promise  <Observable<ShoppingCart>>{
     let cartId = await this.getOrCreateCartId();
+    // return this.db.object('/shopping-carts/' + cartId)
+    //   .map((x: ShoppingCart) => new ShoppingCart(x.items));
     return this.db.object('/shopping-carts/' + cartId)
-      .map((x: ShoppingCart) => new ShoppingCart(x.items));
+    .map((x: {items: {[productId: string]: ShoppingCartItem}}) => new ShoppingCart(x.items));
+
   }
 
   private getItem(cartId: string, productId: string) {

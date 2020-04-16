@@ -9,7 +9,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
-  cart$: Observable<ShoppingCart>;
+  cart$;
 
   constructor(private shoppingCartService: ShoppingCartService) { }
 
