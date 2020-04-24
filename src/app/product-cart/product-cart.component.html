@@ -1,6 +1,5 @@
 <div *ngIf="product.title">
-  <label *ngIf="componentLabel" for="card">{{ componentLabel }}</label>
-  <div class="card" name="card">
+  <div class="card">
     <img *ngIf="product.imageUrl" class="card-img-top" [src]="product.imageUrl" alt="{{ product.title }}">
     <div class="card-body">
       <h4 class="card-title">{{ product.title }}</h4>
