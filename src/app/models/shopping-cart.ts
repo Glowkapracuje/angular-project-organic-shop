@@ -6,7 +6,7 @@ export class ShoppingCart {
   items: ShoppingCartItem[] = [];
 
   // public keyword automaticly initialise items
-  constructor(public itemsMap: { [productId: string]: ShoppingCartItem }) {
+  constructor(private itemsMap: { [productId: string]: ShoppingCartItem }) {
     this.itemsMap = itemsMap || {};
 
     for (let productId in itemsMap) {
