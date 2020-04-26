@@ -14,7 +14,7 @@
           class="badge badge-warning badge-pill"
           *ngIf="cart$ | async as cart"
           >
-            {{ cart.totalItemsCount }}
+            {{ cart.totalItemsCount }} items ({{ cart.totalPrice | currency: 'PLN' }})
           </span>
         </a>
       </li>

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
@@ -36,6 +36,7 @@ import { ProductCartComponent } from './product-cart/product-cart.component';
 import { ShoppingCartService } from './shopping-cart.service';
 import { ProductQuantityComponent } from './product-quantity/product-quantity.component';
 import { OrderService } from './order.service';
+import { ShoppingCartSummaryComponent } from './shopping-cart-summary/shopping-cart-summary.component';
 
 
 
@@ -55,7 +56,8 @@ import { OrderService } from './order.service';
     ProductFormComponent,
     ProductFilterComponent,
     ProductCartComponent,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    ShoppingCartSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +111,11 @@ import { OrderService } from './order.service';
     CategoryService,
     ProductService,
     ShoppingCartService,
-    OrderService
+    OrderService,
+    [{
+      provide: LOCALE_ID,
+      useValue: 'pl-PL'
+     }]
   ],
   bootstrap: [AppComponent]
 })
