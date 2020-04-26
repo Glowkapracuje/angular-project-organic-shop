@@ -1,6 +1,6 @@
 import { ShoppingCartItem } from "./shopping-cart-item";
 import { Product } from "./product";
-import { ShoppingCartService } from "app/shopping-cart.service";
+import { ShoppingCartService } from "app/shared/services/shopping-cart.service";
 
 export class ShoppingCart {
   items: ShoppingCartItem[] = [];

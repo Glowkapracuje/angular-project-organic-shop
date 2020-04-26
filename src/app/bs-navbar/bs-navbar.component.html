@@ -11,11 +11,13 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/shopping-cart">
           Shopping Cart
+
           <span class="badge badge-warning badge-pill" *ngIf="cart$ | async as cart">
             <span *ngIf="(cart.totalItemsCount === 1 ? 'item' : 'items') as itemOrItems">
               {{ cart.totalItemsCount }} {{ itemOrItems }} ({{ cart.totalPrice | currency: 'PLN' }})
             </span>
           </span>
+
         </a>
       </li>
 

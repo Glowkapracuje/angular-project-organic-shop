@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Product } from 'app/models/product';
-import { ShoppingCartService } from 'app/shopping-cart.service';
-import { ShoppingCart } from 'app/models/shopping-cart';
+import { Product } from 'app/shared/models/product';
+import { ShoppingCartService } from 'app/shared/services/shopping-cart.service';
+import { ShoppingCart } from 'app/shared/models/shopping-cart';
 
 @Component({
   selector: 'product-cart',
