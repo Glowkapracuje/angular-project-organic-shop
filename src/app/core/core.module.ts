@@ -10,7 +10,6 @@ import { LoginComponent } from './components/login/login.component';
 @NgModule({
   imports: [
     SharedModule,
-    NgbModule.forRoot(),
     RouterModule.forChild([])
   ],
   declarations: [
