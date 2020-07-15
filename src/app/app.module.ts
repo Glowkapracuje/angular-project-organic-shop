@@ -14,24 +14,22 @@ import { SharedModule } from 'shared/shared.module';
 
 import { AdminModule } from './admin/admin.module';
 import { AppComponent } from './app.component';
-import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
+
+import { LoginComponent } from './core/components/login/login.component';
 import { ProductsComponent } from './shopping/components/products/products.component';
 import { ShoppingModule } from './shopping/shopping.module';
+import { CoreModule } from './core/core.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BsNavbarComponent,
-    HomeComponent,
-    LoginComponent,
-
+    AppComponent
   ],
   imports: [
     AdminModule,
     SharedModule,
     ShoppingModule,
+    CoreModule,
 
     BrowserModule,
     FormsModule,
