@@ -57,3 +57,11 @@ a:hover {
 .form-control:focus {
   border-color: $primary-color;
 }
+
+.smallInfo {
+  font-size: small;
+  color: darkred;
+  text-align: center;
+  float: left;
+  padding: 15px;
+}

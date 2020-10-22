@@ -42,6 +42,7 @@
           <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">{{ appUser.name }}</a>
           <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+            <span class="smallInfo ">admin functions are enabled only for presentation purposes</span>
             <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
             <ng-container *ngIf="appUser.isAdmin">
               <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
